@@ -15,6 +15,7 @@ import Home from '../Pages/Home/Home';
       children:[
         {
             index: true,
+            loader:()=>fetch('bookData.json'),
             path:'/',
             Component:Home
         }
