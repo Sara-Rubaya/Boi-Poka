@@ -1,6 +1,10 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import { addToStoredDb } from '../../Utilities/AddToDB';
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
+const MySwal = withReactContent(Swal)
 
 const BookDetails = () => {
     const {id} = useParams();
@@ -8,12 +12,20 @@ const BookDetails = () => {
     const data = useLoaderData();
     const singleBook = data.find(book => book.bookId === bookId);
     const {author,bookName, tags,category, publisher
-        , image, review, totalPages,} = singleBook;
+        , image, review, totalPages,} = singleBook || {};
+
+        
 
 
         const handleMarkAsRead = id => {
+            MySwal.fire({
+                title: "Good job!",
+                text: "Successfully added book!",
+                icon: "success"
+              });
             addToStoredDb(id);
         }
+ 
 
 
     return (
