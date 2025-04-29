@@ -29,7 +29,7 @@ const BookDetails = () => {
             </div>
             <p><span className='font-bold'>Published By:</span> {publisher}</p>
             <p><span className='font-bold'>Review:</span> {review}</p>
-            <p>{totalPages}</p>
+            <p><span className='font-bold'>Total Pages:</span>{totalPages}</p>
             <div className='flex justify-center mt-5 mb-5'> 
             <button onClick={()=>handleMarkAsRead(id)} className="btn  btn-info w-1/2 m-2">Mark as Read</button>
             <button className="btn btn-soft btn-secondary m-2 w-1/2 ">Add to WishList</button>

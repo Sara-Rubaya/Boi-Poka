@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const Book = ({singleBook}) => {
     // const data = use(bookPromise);
     // console.log(data);
-    const {bookName, author, image, rating, category, tags, yearOfPublishing, publisher, bookId} = singleBook;
+    const {bookName, author, image, rating, category, tags, yearOfPublishing, publisher, bookId, totalPages} = singleBook;
     return (
        <Link to={`/bookDetails/${bookId}`}>
              <div className="card bg-base-100 w-96 shadow-sm">
@@ -22,9 +22,9 @@ const Book = ({singleBook}) => {
             </div>
           <h2 className="card-title">{bookName}</h2>
           <div className="badge badge-secondary">{yearOfPublishing}</div>
-          <p>{author}</p>
-          <p>Book by: {publisher}</p>
-          
+          <p><span className='font-bold'>Author: </span>{author}</p>
+          <p><span className='font-bold'>Book by:</span> {publisher}</p>
+          <p><span className='font-bold'>Total Pages:</span>{totalPages}</p>
           <div className="card-actions">
             <button className="btn btn-soft btn-info w-full">Buy Now</button>
             <div className='card-actions justify-end ml-42 '>
